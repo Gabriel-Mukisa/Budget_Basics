@@ -1,48 +1,32 @@
-const slides = document.querySelectorAll(".heroSlide");
-const dots = document.querySelectorAll(".carouselDot");
+const slides = document.querySelectorAll(".hero-slide");
+const dots = document.querySelectorAll(".carousel-dot");
 
 let currentSlide = 0;
 let carouselTimer;
 
-
 function showSlide(index) {
     slides.forEach((slide, slideIndex) => {
-        slide.classList.toggle(
-            "active",
-            slideIndex === index
-        );
+        slide.classList.toggle("active", slideIndex === index);
     });
 
     dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle(
-            "active",
-            dotIndex === index
-        );
+        dot.classList.toggle("active", dotIndex === index);
     });
 
     currentSlide = index;
 }
 
-
 function startCarousel() {
-    if (slides.length <= 1) {
-        return;
-    }
-
     carouselTimer = setInterval(() => {
-        const nextSlide =
-            (currentSlide + 1) % slides.length;
-
+        const nextSlide = (currentSlide + 1) % slides.length;
         showSlide(nextSlide);
     }, 5000);
 }
-
 
 function resetCarousel() {
     clearInterval(carouselTimer);
     startCarousel();
 }
-
 
 dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
@@ -51,11 +35,8 @@ dots.forEach((dot, index) => {
     });
 });
 
-
-if (slides.length > 0) {
-    showSlide(0);
-    startCarousel();
-}
+showSlide(0);
+startCarousel();
 
 
 /* Theme */
@@ -198,3 +179,13 @@ systemTheme.addEventListener("change", () => {
     }
 
 });
+
+const visitorCount = document.querySelector("#visitorCount");
+
+if (visitorCount) {
+    const storedVisits = Number(localStorage.getItem("budgetBeeVisits")) || 0;
+    const currentVisits = storedVisits + 1;
+
+    localStorage.setItem("budgetBeeVisits", currentVisits);
+    visitorCount.textContent = currentVisits;
+}
