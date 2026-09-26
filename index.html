@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Budget Bee</title>
     <link rel="stylesheet" href="css/global.css">
 </head>
 
@@ -17,7 +17,7 @@
                     <small>NextGen Budget Bee</small>
                 </span>
             </a>
-            <button class="menuToggle">
+            <button class="menuToggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -57,95 +57,94 @@
                 </div>
             </div>
             <div class="hero-visual">
-                        
                 <div class="hero-carousel" aria-label="Featured learning topics">
-                
                     <a href="#budgeting" class="hero-slide active">
                         <img
                             src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85"
                             alt="Person planning a personal budget"
                         >
-                    
+
                         <div class="hero-slide-overlay">
                             <div>
                                 <span class="hero-slide-label">01</span>
                                 <h2>Master Your Budget</h2>
                                 <p>Learn where your money goes and how to plan it.</p>
                             </div>
-                        
-                            <span class="hero-slide-arrow" aria-hidden="true">
-                                →
-                            </span>
+
+                            <span class="hero-slide-arrow" aria-hidden="true">→</span>
                         </div>
                     </a>
-                
-                
+
                     <a href="#needs-wants" class="hero-slide">
                         <img
                             src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85"
                             alt="Person making a spending decision"
                         >
-                    
+
                         <div class="hero-slide-overlay">
                             <div>
                                 <span class="hero-slide-label">02</span>
                                 <h2>Needs or Wants?</h2>
                                 <p>Build better spending decisions one choice at a time.</p>
                             </div>
-                        
-                            <span class="hero-slide-arrow" aria-hidden="true">
-                                →
-                            </span>
+
+                            <span class="hero-slide-arrow" aria-hidden="true">→</span>
                         </div>
                     </a>
-                
-                
+
                     <a href="#savings" class="hero-slide">
                         <img
                             src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=85"
                             alt="Money being saved for a future goal"
                         >
-                    
+
                         <div class="hero-slide-overlay">
                             <div>
                                 <span class="hero-slide-label">03</span>
                                 <h2>Build Your Savings</h2>
                                 <p>Turn small saving habits into meaningful goals.</p>
                             </div>
-                        
-                            <span class="hero-slide-arrow" aria-hidden="true">
-                                →
-                            </span>
+
+                            <span class="hero-slide-arrow" aria-hidden="true">→</span>
                         </div>
                     </a>
-                
                 </div>
-            
+
                 <div class="hero-carousel-controls">
-                
-                    <button
-                        type="button"
-                        class="carousel-dot active"
-                        aria-label="Show budgeting"
-                    ></button>
-                
-                    <button
-                        type="button"
-                        class="carousel-dot"
-                        aria-label="Show needs versus wants"
-                    ></button>
-                
-                    <button
-                        type="button"
-                        class="carousel-dot"
-                        aria-label="Show savings goals"
-                    ></button>
-                
+                    <button type="button" class="carousel-dot active" aria-label="Show budgeting"></button>
+                    <button type="button" class="carousel-dot" aria-label="Show needs versus wants"></button>
+                    <button type="button" class="carousel-dot" aria-label="Show savings goals"></button>
                 </div>
-            
             </div>
         </section>
     </main>
+
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle" id="chatToggle" type="button" aria-label="Open Budget Assistant">
+            <span class="chat-toggle-icon" aria-hidden="true">🐝</span>
+            <span class="chat-toggle-label">Ask Budget Bee</span>
+        </button>
+
+        <section class="chatbot" id="assistant" aria-live="polite">
+            <div class="chatbot-header">
+                <h2>Budget Assistant</h2>
+                <p>Ask me anything about your budget</p>
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+                <div class="chat-message bot">
+                    Hi! I'm your Budget Assistant.
+                    How can I help you today?
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your question..." />
+                <button id="sendButton" type="button">Send</button>
+            </div>
+        </section>
+    </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>

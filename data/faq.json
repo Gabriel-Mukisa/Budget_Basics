@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "How do I start a budget if I’ve never made one before?",
+    "keywords": ["budget", "start", "make", "income", "expenses", "money"],
+    "answer": "Great question! Starting a budget is simpler than most people think.\n1. Write down how much money you receive every month (salary, allowance, side hustle, etc.).\n2. List all your expenses for the last 1–2 months (rent, food, transport, data, entertainment…).\n3. Subtract your total expenses from your income.\n4. Decide where you want the leftover money to go (savings, debt, or fun).\nYou can start with a simple notebook, Google Sheet, or any free budgeting app. The most important thing is just to begin — even a rough budget is better than none."
+  },
+  {
+    "id": 2,
+    "question": "What’s the difference between needs and wants?",
+    "keywords": ["needs", "wants", "difference", "spending"],
+    "answer": "Needs are things you must have to live and function — food, housing, basic transport, school fees, essential clothing, and medicine.\nWants are things that make life nicer but aren’t essential — eating out, new gadgets, trendy clothes, streaming subscriptions, or weekend trips.\nA good rule: if you can live without it for a month and still be okay, it’s probably a want. Learning this difference helps you spend more intentionally."
+  },
+  {
+    "id": 3,
+    "question": "How much of my income should I save every month?",
+    "keywords": ["income", "save", "saving", "month", "percentage"],
+    "answer": "A good starting target is 20% of your income.\nMany people use the 50/30/20 rule:\n- 50% for needs\n- 30% for wants\n- 20% for savings and debt\nIf 20% feels impossible right now, start with 5% or 10%. The habit matters more than the amount at the beginning. As your income grows, you can increase the percentage."
+  },
+  {
+    "id": 4,
+    "question": "What’s the 50/30/20 budgeting rule and how does it work?",
+    "keywords": ["50/30/20", "budgeting rule", "needs", "wants", "savings", "debt"],
+    "answer": "The 50/30/20 rule is a simple way to divide your money:\n- 50% goes to Needs (rent, food, transport, bills)\n- 30% goes to Wants (entertainment, eating out, hobbies)\n- 20% goes to Savings and debt repayment\nIt’s flexible — if your needs are higher (e.g. high rent), you can adjust to 60/20/20. The goal is to give every shilling a job so you don’t wonder where your money went."
+  },
+  {
+    "id": 5,
+    "question": "How can I stop impulse buying?",
+    "keywords": ["impulse", "buying", "shopping", "spend", "purchase"],
+    "answer": "Impulse buying usually happens when we shop while bored, stressed, or scrolling. Try these tricks:\n- Wait 24 hours before buying anything non-essential\n- Unsubscribe from marketing emails and mute shopping accounts\n- Ask yourself: “Will I still want this in a week?”\n- Use a shopping list and stick to it\n- Leave your card at home when you go out just to “look around”\nThe more you practice pausing, the easier it becomes."
+  },
+  {
+    "id": 6,
+    "question": "What’s an emergency fund and how much should I have?",
+    "keywords": ["emergency fund", "fund", "unexpected", "money", "savings"],
+    "answer": "An emergency fund is money set aside for unexpected problems — medical bills, phone repairs, sudden transport costs, or job loss.\nStart with a small goal of KES 5,000–10,000 (or one month of basic expenses).\nEventually aim for 3–6 months of living expenses.\nKeep this money in a separate account that is easy to access but not too easy to spend (like a savings account, not your everyday M-Pesa)."
+  },
+  {
+    "id": 7,
+    "question": "How do I track my spending without it feeling stressful?",
+    "keywords": ["track", "spending", "expenses", "stress", "budget"],
+    "answer": "You don’t need to record every single coin. Try this lighter method:\n- Check your M-Pesa and bank statements once a week\n- Group expenses into big categories (Food, Transport, Fun, Bills)\n- Use a free app or a simple Google Sheet\n- Review only once a week instead of every day\nTracking should give you clarity, not stress. If it feels heavy, simplify it until it becomes a 5-minute weekly habit."
+  },
+  {
+    "id": 8,
+    "question": "Should I pay off debt or start saving first?",
+    "keywords": ["debt", "save", "saving", "pay off", "loan"],
+    "answer": "Do both if you can, but prioritise like this:\n1. Build a small emergency fund first (even KES 5,000) so you don’t fall deeper into debt when something unexpected happens.\n2. Then attack high-interest debt (like credit cards or expensive loans).\n3. After that, focus more on regular savings.\nIf your debt has very high interest, paying it off can actually be the best “return” on your money."
+  },
+  {
+    "id": 9,
+    "question": "How can I save money even if I earn very little?",
+    "keywords": ["save money", "earn little", "income", "small income", "saving"],
+    "answer": "Even small amounts add up. Try these realistic methods:\n- Save any “extra” money the same day you receive it (before you can spend it)\n- Cut one small daily expense (e.g. one less soda or snack) and put that money aside\n- Use the 1% rule — save just 1% of whatever you earn and increase slowly\n- Look for free or cheaper alternatives (walk instead of matatu sometimes, cook instead of ordering)\nConsistency beats big amounts. KES 50 saved every day becomes KES 18,250 in a year."
+  },
+  {
+    "id": 10,
+    "question": "What’s the best way to set a realistic savings goal?",
+    "keywords": ["goal", "savings goal", "realistic", "save", "money"],
+    "answer": "A good savings goal is Specific, Measurable, and Time-bound.\nInstead of “I want to save money”, say:\n“I want to save KES 15,000 for a new laptop in 6 months.”\nThen break it down: KES 15,000 ÷ 6 = KES 2,500 per month (about KES 83 per day).\nWrite the goal down, put a reminder on your phone, and track your progress weekly. Celebrating small wins keeps you motivated."
+  }
+]
