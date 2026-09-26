@@ -183,31 +183,127 @@
             <div class="sectionHeader">
                 <div>
                     <p class="sectionEyebrow">TOOLS</p>
-                    <h2>Tools content goes here.</h2>
+                    <h2>Make a plan for your money.</h2>
                 </div>
-                <p class="sectionDescription">Section introduction provided by the crew.</p>
+                <p class="sectionDescription">Plan a monthly budget, track spending, and estimate how long your savings goal will take.</p>
             </div>
 
             <div class="toolsGrid">
-                <article class="toolCard">
-                    <span class="cardLabel">Tool</span>
-                    <h3>Tool title</h3>
-                    <p>Tool description provided by the crew.</p>
-                    <a href="#" class="cardLink">Open Tool</a>
+                <article class="toolCard toolPanel">
+                    <span class="cardLabel">Monthly plan</span>
+                    <h3>50 / 30 / 20 calculator</h3>
+                    <p>See a suggested split of your income for needs, wants, and savings.</p>
+
+                    <form id="calForm" class="toolForm">
+                        <label for="IncomeInput">Monthly income</label>
+                        <div class="toolInputRow">
+                            <span aria-hidden="true">$</span>
+                            <input type="number" id="IncomeInput" min="0.01" step="0.01" inputmode="decimal" required>
+                        </div>
+                        <p id="errorMessage" class="toolError" role="alert"></p>
+                        <button class="toolButton" type="submit">Calculate split</button>
+                    </form>
+
+                    <div id="resultBox" class="toolResult" aria-live="polite" style="display: none;">
+                        <h4>Suggested monthly allocation</h4>
+                        <div class="allocationRow"><span>Needs · 50%</span><strong id="needsOutput">$0.00</strong></div>
+                        <div class="allocationRow"><span>Wants · 30%</span><strong id="wantsOutput">$0.00</strong></div>
+                        <div class="allocationRow"><span>Savings · 20%</span><strong id="savingsOutput">$0.00</strong></div>
+                    </div>
                 </article>
 
-                <article class="toolCard">
-                    <span class="cardLabel">Tool</span>
-                    <h3>Tool title</h3>
-                    <p>Tool description provided by the crew.</p>
-                    <a href="#" class="cardLink">Open Tool</a>
+                <article class="toolCard toolPanel">
+                    <span class="cardLabel">Spending tracker</span>
+                    <h3>Expense tracker</h3>
+                    <p>Add expenses, edit or remove entries, and export your list as a CSV file.</p>
+
+                    <form id="expenseForm" class="toolForm">
+                        <div class="toolFields">
+                            <div>
+                                <label for="expenseDate">Date</label>
+                                <input type="date" id="expenseDate" required>
+                            </div>
+                            <div>
+                                <label for="expenseCategory">Category</label>
+                                <select id="expenseCategory" required>
+                                    <option value="">Choose</option>
+                                    <option>Housing</option>
+                                    <option>Food</option>
+                                    <option>Transport</option>
+                                    <option>Education</option>
+                                    <option>Health</option>
+                                    <option>Entertainment</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="toolFieldWide">
+                                <label for="expenseDesc">Description</label>
+                                <input type="text" id="expenseDesc" maxlength="100" required>
+                            </div>
+                            <div class="toolFieldWide">
+                                <label for="expenseAmount">Amount</label>
+                                <div class="toolInputRow">
+                                    <span aria-hidden="true">$</span>
+                                    <input type="number" id="expenseAmount" min="0.01" step="0.01" inputmode="decimal" required>
+                                </div>
+                            </div>
+                        </div>
+                        <p id="expError" class="toolError" role="alert"></p>
+                        <button id="expSubmitBtn" class="toolButton" type="submit">Add expense</button>
+                    </form>
+
+                    <div class="expenseSummary">
+                        <strong>Total</strong>
+                        <strong id="totalExpense">$0.00</strong>
+                        <button id="exportButton" class="toolButton toolButtonSecondary" type="button">Export CSV</button>
+                    </div>
+                    <div class="expenseTableWrap">
+                        <table class="expenseTable">
+                            <thead>
+                                <tr><th>Date</th><th>Category</th><th>Description</th><th>Amount</th><th>Actions</th></tr>
+                            </thead>
+                            <tbody id="expenseList"></tbody>
+                        </table>
+                        <p id="expenseEmpty" class="emptyState">No expenses added yet.</p>
+                    </div>
                 </article>
 
-                <article class="toolCard">
-                    <span class="cardLabel">Tool</span>
-                    <h3>Tool title</h3>
-                    <p>Tool description provided by the crew.</p>
-                    <a href="#" class="cardLink">Open Tool</a>
+                <article class="toolCard toolPanel">
+                    <span class="cardLabel">Savings plan</span>
+                    <h3>Savings goal planner</h3>
+                    <p>Estimate the time needed to reach a goal at your chosen monthly contribution.</p>
+
+                    <form id="goalForm" class="toolForm">
+                        <label for="goalName">Goal name</label>
+                        <input type="text" id="goalName" maxlength="60" required>
+                        <div class="toolFields">
+                            <div>
+                                <label for="targetAmount">Target amount</label>
+                                <input type="number" id="targetAmount" min="0.01" step="0.01" inputmode="decimal" required>
+                            </div>
+                            <div>
+                                <label for="currentSavings">Already saved</label>
+                                <input type="number" id="currentSavings" min="0" step="0.01" inputmode="decimal" required>
+                            </div>
+                            <div class="toolFieldWide">
+                                <label for="monthlyContribution">Monthly contribution</label>
+                                <input type="number" id="monthlyContribution" min="0.01" step="0.01" inputmode="decimal" required>
+                            </div>
+                        </div>
+                        <p id="goalError" class="toolError" role="alert"></p>
+                        <button class="toolButton" type="submit">Calculate goal</button>
+                    </form>
+
+                    <div id="goalResultBox" class="toolResult" aria-live="polite" style="display: none;">
+                        <h4 id="resGoalTitle">Savings goal</h4>
+                        <div class="progressTrack">
+                            <div id="progressBar" class="progressBar" role="progressbar" aria-label="Savings goal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+                        </div>
+                        <p id="progressPercent" class="progressCaption"></p>
+                        <div class="allocationRow"><span>Remaining</span><strong id="resRemaining">$0.00</strong></div>
+                        <div class="allocationRow"><span>Months to goal</span><strong id="resMonths">0</strong></div>
+                        <p id="savingsTip" class="savingsTip"></p>
+                    </div>
                 </article>
             </div>
         </section>

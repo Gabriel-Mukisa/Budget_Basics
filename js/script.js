@@ -257,19 +257,27 @@ if (themeSwitcher && themeTrigger && themeOptions.length) {
 
 //logic to export expenses to CSV
 function exportToCSV() {
-
-    if (expenses.length === 0) {
+    if (!Array.isArray(expenses) || expenses.length === 0) {
         alert('No expenses to export.');
         return;
     }
 
-    let csvData = 'Date,Category,Description,Amount\n';
+    const escapeCsvValue = (value) => {
+        const text = String(value).replace(/^(\s*[=+\-@])/, "'$1");
+        return `"${text.replace(/"/g, '""')}"`;
+    };
+    const rows = [
+        ['Date', 'Category', 'Description', 'Amount'],
+        ...expenses.map((expense) => [
+            expense.date,
+            expense.category,
+            expense.description,
+            expense.amount.toFixed(2)
+        ])
+    ];
+    const csvData = rows.map((row) => row.map(escapeCsvValue).join(',')).join('\r\n');
 
-    for (let i = 0; i < expenses.length; i++) {
-        csvData += `${expenses[i].date},${expenses[i].category},${expenses[i].description},${expenses[i].amount.toFixed(2)}\n`;
-    }
-
-    const blob = new Blob([csvData], { type: 'text/csv' });
+    const blob = new Blob([`\uFEFF${csvData}`], { type: 'text/csv;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -277,6 +285,7 @@ function exportToCSV() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
 //
