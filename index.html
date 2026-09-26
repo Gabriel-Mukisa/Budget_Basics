@@ -9,12 +9,9 @@
         (() => {
             const savedTheme = localStorage.getItem("budgetBeeTheme");
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-            const theme =
-                savedTheme === "dark" || (savedTheme !== "light" && prefersDark)
-                    ? "dark"
-                    : "light";
-
+            const theme = savedTheme === "dark" || (savedTheme !== "light" && prefersDark)
+                ? "dark"
+                : "light";
             document.documentElement.dataset.theme = theme;
         })();
     </script>
@@ -52,7 +49,6 @@
                     <svg class="themeIcon moonIcon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79Z"></path>
                     </svg>
-
                     <svg class="themeIcon sunIcon" viewBox="0 0 24 24" aria-hidden="true">
                         <circle cx="12" cy="12" r="4"></circle>
                         <path d="M12 2v2"></path>
@@ -101,42 +97,42 @@
                         <div class="heroSlideOverlay">
                             <div>
                                 <span class="heroSlideLabel">01</span>
-                                <h2>Money habits that stick</h2>
-                                <p>Build a simple system that keeps your spending honest and your goals clear.</p>
+                                <h2>Master Your Budget</h2>
+                                <p>Learn where your money goes and how to plan it.</p>
                             </div>
                             <span class="heroSlideArrow" aria-hidden="true">→</span>
                         </div>
                     </a>
 
-                    <a href="#saving" class="heroSlide">
-                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=85" alt="Savings plan and financial goal planning">
+                    <a href="#needs-wants" class="heroSlide">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85" alt="Person making a spending decision">
                         <div class="heroSlideOverlay">
                             <div>
                                 <span class="heroSlideLabel">02</span>
-                                <h2>Save without stress</h2>
-                                <p>Turn small, consistent actions into a savings routine you can actually maintain.</p>
+                                <h2>Needs or Wants?</h2>
+                                <p>Build better spending decisions one choice at a time.</p>
                             </div>
                             <span class="heroSlideArrow" aria-hidden="true">→</span>
                         </div>
                     </a>
 
-                    <a href="#planning" class="heroSlide">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85" alt="Students planning budgets and learning together">
+                    <a href="#savings" class="heroSlide">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=85" alt="Money being saved for a future goal">
                         <div class="heroSlideOverlay">
                             <div>
                                 <span class="heroSlideLabel">03</span>
-                                <h2>Plan for the future</h2>
-                                <p>Use a budget to create calm, confidence and a stronger financial future.</p>
+                                <h2>Build Your Savings</h2>
+                                <p>Turn small saving habits into meaningful goals.</p>
                             </div>
                             <span class="heroSlideArrow" aria-hidden="true">→</span>
                         </div>
                     </a>
                 </div>
 
-                <div class="heroCarouselControls" aria-label="Choose a slide">
-                    <button type="button" class="carouselDot active" aria-label="Show slide 1"></button>
-                    <button type="button" class="carouselDot" aria-label="Show slide 2"></button>
-                    <button type="button" class="carouselDot" aria-label="Show slide 3"></button>
+                <div class="heroCarouselControls">
+                    <button type="button" class="carouselDot active" aria-label="Show budgeting"></button>
+                    <button type="button" class="carouselDot" aria-label="Show needs versus wants"></button>
+                    <button type="button" class="carouselDot" aria-label="Show savings goals"></button>
                 </div>
             </div>
         </section>
