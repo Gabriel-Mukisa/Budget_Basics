@@ -1,0 +1,286 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #111111;
+    --color-yellow: #f5c518;
+    --color-yellow-soft: #fff4bf;
+
+    --color-gray-100: #f7f7f5;
+    --color-gray-300: #deded9;
+    --color-gray-500: #73736d;
+
+    --glass-white: rgba(255, 255, 255, 0.72);
+
+    --shadow-soft:
+        0 8px 30px rgba(17, 17, 17, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-gray-100);
+    color: var(--color-black);
+}
+
+.navbar {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    margin-top: 1.0rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.8rem 1rem;
+    background: var(--glass-white);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 1.25rem;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: var(--shadow-soft);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    flex-shrink: 0;
+}
+
+.brandLogo {
+    width: 2.6rem;
+    height: 2.6rem;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 0.85rem;
+
+    background: var(--color-yellow);
+    color: var(--color-black);
+
+    font-size: 1.15rem;
+    font-weight: 800;
+
+    box-shadow:
+        inset 2px 2px 5px rgba(255, 255, 255, 0.55),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.brandText strong {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.brandText small {
+    font-size: 0.7rem;
+    color: var(--color-gray-500);
+}
+
+.navMenu {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.navMenu > a {
+    padding: 0.65rem 0.8rem;
+
+    border-radius: 0.75rem;
+
+    color: var(--color-gray-500);
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.navMenu > a:hover {
+    background: var(--color-yellow-soft);
+    color: var(--color-black);
+}
+
+.navMenu > a:focus-visible, .menuToggle:focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 3px;
+}
+
+.navMenu > a.active {
+    color: var(--color-black);
+    font-weight: 700;
+    background: var(--color-yellow-soft);
+}
+
+.menuToggle span {
+    width: 1.2rem;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: var(--color-black);
+}
+
+.nav-action {
+    margin-left: 0.35rem;
+
+    background: var(--color-yellow) !important;
+    color: var(--color-black) !important;
+
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 5px 14px rgba(245, 197, 24, 0.22);
+}
+
+.nav-action:hover {
+    background: #e5b600 !important;
+    transform: translateY(-1px);
+}
+
+.nav-action:active {
+    transform: translateY(0);
+}
+
+.menuToggle {
+    display: none;
+
+    width: 2.7rem;
+    height: 2.7rem;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    border: 0;
+    border-radius: 0.8rem;
+
+    background: transparent;
+    cursor: pointer;
+}
+
+.menuToggle span {
+    width: 1.2rem;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: #26352c;
+
+    transition:
+        transform 180ms ease,
+        opacity 180ms ease;
+}
+
+.menuToggle:hover {
+    background: rgba(220, 239, 228, 0.7);
+}
+
+.menuToggle:focus-visible {
+    outline: 2px solid #4f9d69;
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+
+    .site-header {
+        padding: 0.75rem;
+    }
+
+    .navbar {
+        padding: 0.7rem 0.8rem;
+    }
+
+    .menuToggle {
+        display: flex;
+    }
+
+    .navMenu {
+        position: absolute;
+
+        top: calc(100% + 0.6rem);
+        left: 0;
+        right: 0;
+
+        width: min(100% - 1.5rem, 500px);
+        margin: 0 auto;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 0.7rem;
+
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 1.25rem;
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        box-shadow:
+            0 15px 40px rgba(31, 50, 40, 0.12);
+    }
+
+    .navMenu > a {
+        width: 100%;
+        padding: 0.85rem 1rem;
+    }
+
+    .nav-action {
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+    .navMenu.open {
+        display: flex;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .brandText small {
+        display: none;
+    }
+
+    .brandText strong {
+        font-size: 0.9rem;
+    }
+
+    .brandLogo {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+}
