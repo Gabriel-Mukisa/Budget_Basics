@@ -1,3 +1,4 @@
+//logic to export expenses to CSV
 function exportToCSV() {
 
     if (expenses.length === 0) {
@@ -20,3 +21,5 @@ function exportToCSV() {
     link.click();
     document.body.removeChild(link);
 }
+
+//
