@@ -10,7 +10,7 @@ goalForm.addEventListener("submit", function(event) {
     const currentAmount = parseFloat(document.getElementById('currentSavings').value);
     const monthlyContribution = parseFloat(document.getElementById('monthlyContribution').value);
 
-    if(!name || isNaN(TargetAmount) || isNaN(currentAmount) || isNaN(monthlyContribution) || TargetAmount <= 0 || currentAmount < 0 || monthlyContribution < 0) {
+    if(!name || isNaN(TargetAmount) || isNaN(currentAmount) || isNaN(monthlyContribution) || TargetAmount <= 0 || currentAmount < 0 || monthlyContribution <= 0) {
         goalError.textContent = 'Please fill in all fields with valid values.';
         goalResultBox.style.display = 'none';
         return;
@@ -28,25 +28,24 @@ goalForm.addEventListener("submit", function(event) {
     const monthsNeeded = Math.ceil(remainingAmount / monthlyContribution);
     let percent = Math.min((currentAmount / TargetAmount) * 100, 100).toFixed(2);
 
-    document.getElementById('resGoalTitle').textContent = 'Goal: ${name}';
-    document.getElementById('resRemaining').textContent = remaining.toFixed(2);
+
+    document.getElementById('resGoalTitle').textContent = `Goal: ${name}`;
+    document.getElementById('resRemaining').textContent = remainingAmount.toFixed(2);
     document.getElementById('resMonths').textContent = monthsNeeded;
 
     const progressBar = document.getElementById('progressBar');
-    progressBar.style.width = '${percent}%';
-    document.getElementById('progressPercent').textContent = '${percent}% Achieved';
+    progressBar.style.width = `${percent}%`;
+    document.getElementById('progressPercent').textContent = `${percent}% Achieved`;
 
-    const tipElement = document.getElementById('SavingsTip');
+    const tipElement = document.getElementById('savingsTip');
 
     if(monthsNeeded <= 6) {
         tipElement.textContent = 'Great job! You are on track to reach your goal in a short time.';
-    }else if(monthsNeeded <= 12) {
+    } else if(monthsNeeded <= 12) {
         tipElement.textContent = 'You are making good progress. Keep contributing to reach your goal within a year.';
-    }else {
+    } else {
         tipElement.textContent = 'Consider increasing your monthly contribution or adjusting your goal to reach it sooner.';
     }
 
     goalResultBox.style.display = 'block';
-    
-    
 });
