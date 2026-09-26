@@ -5,144 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Bee</title>
     <link rel="stylesheet" href="css/global.css">
-</head>
+    <script>
+        (() => {
+            const savedTheme = localStorage.getItem("budgetBeeTheme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
+            const theme =
+                savedTheme === "dark" || (savedTheme !== "light" && prefersDark)
+                    ? "dark"
+                    : "light";
+
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+</head>
 <body>
-    <header class="site-header">
-        <nav class="navbar">
-            <a href="#" class="brand">
-                <span class="brandLogo">B</span>
-                <span class="brandText">
-                    <strong>Budget Bee</strong>
-                    <small>NextGen Budget Bee</small>
-                </span>
-            </a>
-            <button class="menuToggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="navMenu">
-                <a href="#home">Home</a>
-                <a href="#learn">Learn</a>
-                <a href="#tools">Tools</a>
-                <a href="#insights">Insights</a>
-                <a href="#assistant">Assistant</a>
-                <a href="#contact" class="nav-action">Get Started</a>
+    <header class="siteHeader">
+        <div class="headerLayout">
+            <nav class="navbar">
+                <a href="#" class="brand" aria-label="Budget Bee home">
+                    <span class="brandLogo">B</span>
+                    <span class="brandText">
+                        <strong>Budget Bee</strong>
+                        <small>NextGen Budget Bee</small>
+                    </span>
+                </a>
+
+                <button type="button" class="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="navMenu" aria-label="Main navigation">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#learn">Learn</a>
+                    <a href="#tools">Tools</a>
+                    <a href="#insights">Insights</a>
+                    <a href="#assistant">Assistant</a>
+                    <a href="#contact" class="navAction">Get Started</a>
+                </div>
+            </nav>
+
+            <div class="themeSwitcher">
+                <button type="button" class="themeTrigger" aria-label="Open theme options" aria-expanded="false">
+                    <svg class="themeIcon moonIcon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79Z"></path>
+                    </svg>
+
+                    <svg class="themeIcon sunIcon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                        <path d="m4.93 4.93 1.41 1.41"></path>
+                        <path d="m17.66 17.66 1.41 1.41"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="m4.93 19.07 1.41-1.41"></path>
+                        <path d="m17.66 6.34 1.41-1.41"></path>
+                    </svg>
+                </button>
+
+                <div class="themeOptions" aria-hidden="true">
+                    <button type="button" class="themeOption" data-theme-choice="light">Light</button>
+                    <button type="button" class="themeOption" data-theme-choice="dark">Dark</button>
+                    <button type="button" class="themeOption" data-theme-choice="system">System</button>
+                </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero" id="home">
-            <div class="hero-content">
-                <p class="hero-eyebrow">
-                    SMART MONEY STARTS HERE
-                </p>
+            <div class="heroContent">
+                <p class="heroEyebrow">SMART MONEY STARTS HERE</p>
                 <h1>
                     Learn your money.
                     <span>Build your future.</span>
                 </h1>
-                <p class="hero-description">
+                <p class="heroDescription">
                     A simple, student-friendly way to understand budgeting,
                     saving, spending, and the money decisions that shape your future.
                 </p>
-                <div class="hero-actions">
-                    <a href="#learn" class="hero-primary">
-                        Start Learning
-                    </a>
-                    <a href="#tools" class="hero-secondary">
-                        Explore Tools
-                    </a>
+
+                <div class="heroActions">
+                    <a href="#learn" class="heroPrimary">Start Learning</a>
+                    <a href="#tools" class="heroSecondary">Explore Tools</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-carousel" aria-label="Featured learning topics">
-                    <a href="#budgeting" class="hero-slide active">
-                        <img
-                            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85"
-                            alt="Person planning a personal budget"
-                        >
 
-                        <div class="hero-slide-overlay">
+            <div class="heroVisual">
+                <div class="heroCarousel" aria-label="Featured learning topics">
+                    <a href="#budgeting" class="heroSlide active">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85" alt="Person planning a personal budget">
+                        <div class="heroSlideOverlay">
                             <div>
-                                <span class="hero-slide-label">01</span>
-                                <h2>Master Your Budget</h2>
-                                <p>Learn where your money goes and how to plan it.</p>
+                                <span class="heroSlideLabel">01</span>
+                                <h2>Money habits that stick</h2>
+                                <p>Build a simple system that keeps your spending honest and your goals clear.</p>
                             </div>
-
-                            <span class="hero-slide-arrow" aria-hidden="true">→</span>
+                            <span class="heroSlideArrow" aria-hidden="true">→</span>
                         </div>
                     </a>
 
-                    <a href="#needs-wants" class="hero-slide">
-                        <img
-                            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85"
-                            alt="Person making a spending decision"
-                        >
-
-                        <div class="hero-slide-overlay">
+                    <a href="#saving" class="heroSlide">
+                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=85" alt="Savings plan and financial goal planning">
+                        <div class="heroSlideOverlay">
                             <div>
-                                <span class="hero-slide-label">02</span>
-                                <h2>Needs or Wants?</h2>
-                                <p>Build better spending decisions one choice at a time.</p>
+                                <span class="heroSlideLabel">02</span>
+                                <h2>Save without stress</h2>
+                                <p>Turn small, consistent actions into a savings routine you can actually maintain.</p>
                             </div>
-
-                            <span class="hero-slide-arrow" aria-hidden="true">→</span>
+                            <span class="heroSlideArrow" aria-hidden="true">→</span>
                         </div>
                     </a>
 
-                    <a href="#savings" class="hero-slide">
-                        <img
-                            src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=85"
-                            alt="Money being saved for a future goal"
-                        >
-
-                        <div class="hero-slide-overlay">
+                    <a href="#planning" class="heroSlide">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85" alt="Students planning budgets and learning together">
+                        <div class="heroSlideOverlay">
                             <div>
-                                <span class="hero-slide-label">03</span>
-                                <h2>Build Your Savings</h2>
-                                <p>Turn small saving habits into meaningful goals.</p>
+                                <span class="heroSlideLabel">03</span>
+                                <h2>Plan for the future</h2>
+                                <p>Use a budget to create calm, confidence and a stronger financial future.</p>
                             </div>
-
-                            <span class="hero-slide-arrow" aria-hidden="true">→</span>
+                            <span class="heroSlideArrow" aria-hidden="true">→</span>
                         </div>
                     </a>
                 </div>
 
-                <div class="hero-carousel-controls">
-                    <button type="button" class="carousel-dot active" aria-label="Show budgeting"></button>
-                    <button type="button" class="carousel-dot" aria-label="Show needs versus wants"></button>
-                    <button type="button" class="carousel-dot" aria-label="Show savings goals"></button>
+                <div class="heroCarouselControls" aria-label="Choose a slide">
+                    <button type="button" class="carouselDot active" aria-label="Show slide 1"></button>
+                    <button type="button" class="carouselDot" aria-label="Show slide 2"></button>
+                    <button type="button" class="carouselDot" aria-label="Show slide 3"></button>
                 </div>
             </div>
         </section>
     </main>
 
     <div class="chat-widget" id="chatWidget">
-        <button class="chat-toggle" id="chatToggle" type="button" aria-label="Open Budget Assistant">
-            <span class="chat-toggle-icon" aria-hidden="true">🐝</span>
-            <span class="chat-toggle-label">Ask Budget Bee</span>
-        </button>
-
-        <section class="chatbot" id="assistant" aria-live="polite">
+        <section class="chatbot" aria-live="polite" aria-label="Budget assistant chat">
             <div class="chatbot-header">
                 <h2>Budget Assistant</h2>
                 <p>Ask me anything about your budget</p>
             </div>
 
             <div id="chatMessages" class="chat-messages">
-                <div class="chat-message bot">
-                    Hi! I'm your Budget Assistant.
-                    How can I help you today?
-                </div>
+                <div class="message bot">Hi! I'm your Budget Assistant. How can I help you today?</div>
             </div>
 
             <div class="chat-input">
-                <input type="text" id="userInput" placeholder="Type your question..." />
+                <input type="text" id="userInput" placeholder="Type your question..." aria-label="Type your financial question">
                 <button id="sendButton" type="button">Send</button>
             </div>
         </section>
+
+        <button type="button" class="chat-toggle" id="chatToggle" aria-label="Open chat assistant">
+            <span class="chat-toggle-icon" aria-hidden="true">🐝</span>
+            <span class="chat-toggle-label">Budget Bee</span>
+        </button>
     </div>
 
     <script src="js/script.js"></script>
