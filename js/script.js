@@ -2,6 +2,8 @@ const slides = document.querySelectorAll(".heroSlide");
 const dots = document.querySelectorAll(".carouselDot");
 const chatWidget = document.getElementById("chatWidget");
 const chatToggle = document.getElementById("chatToggle");
+const menuToggle = document.querySelector(".menuToggle");
+const navMenu = document.querySelector(".navMenu");
 
 let currentSlide = 0;
 let carouselTimer;
@@ -52,11 +54,25 @@ if (slides.length) {
     startCarousel();
 }
 
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = navMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            navMenu.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+        }
+    });
+}
+
 if (chatToggle && chatWidget) {
     chatToggle.addEventListener("click", () => {
         chatWidget.classList.toggle("open");
 
-        const inputField = document.getElementById("userInput") || document.getElementById("user-input");
+        const inputField = document.getElementById("userInput");
         if (chatWidget.classList.contains("open") && inputField) {
             inputField.focus();
         }
@@ -119,7 +135,7 @@ function findAnswer(userMessage) {
 }
 
 function addMessage(message, sender) {
-    const chatMessages = document.getElementById("chatMessages") || document.getElementById("chat-messages");
+    const chatMessages = document.getElementById("chatMessages");
 
     if (!chatMessages) {
         return;
@@ -134,7 +150,7 @@ function addMessage(message, sender) {
 }
 
 function sendMessage() {
-    const input = document.getElementById("userInput") || document.getElementById("user-input");
+    const input = document.getElementById("userInput");
 
     if (!input) {
         return;
@@ -152,15 +168,15 @@ function sendMessage() {
     input.focus();
 }
 
-const sendButton = document.getElementById("sendButton") || document.getElementById("send-button");
-const inputField = document.getElementById("userInput") || document.getElementById("user-input");
+const sendButton = document.getElementById("sendButton");
+const inputField = document.getElementById("userInput");
 
 if (sendButton) {
     sendButton.addEventListener("click", sendMessage);
 }
 
 if (inputField) {
-    inputField.addEventListener("keypress", function (event) {
+    inputField.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
             sendMessage();
         }
@@ -229,11 +245,12 @@ if (themeSwitcher && themeTrigger && themeOptions.length) {
         }
     });
 
-    systemTheme.addEventListener("change", () => {
-        const savedChoice = localStorage.getItem("budgetBeeTheme");
-        if (savedChoice === "system") {
-            applyTheme("system");
-        }
-    });
+    if (typeof systemTheme.addEventListener === "function") {
+        systemTheme.addEventListener("change", () => {
+            const savedChoice = localStorage.getItem("budgetBeeTheme");
+            if (savedChoice === "system") {
+                applyTheme("system");
+            }
+        });
+    }
 }
-
