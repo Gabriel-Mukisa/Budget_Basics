@@ -1,4 +1,5 @@
-let expenses = [];
+const expenseStorageKey = 'budgetBeeExpenses';
+let expenses = loadExpenses();
 let editingIndex = -1;
 
 const expenseForm = document.getElementById('expenseForm');
@@ -8,6 +9,36 @@ const expError = document.getElementById('expError');
 const expSubmitBtn = document.getElementById('expSubmitBtn');
 const exportButton = document.getElementById('exportButton');
 const expenseEmpty = document.getElementById('expenseEmpty');
+
+function loadExpenses() {
+    try {
+        const savedExpenses = JSON.parse(localStorage.getItem(expenseStorageKey) || '[]');
+        if (!Array.isArray(savedExpenses)) {
+            return [];
+        }
+
+        return savedExpenses.filter((expense) =>
+            expense &&
+            typeof expense.date === 'string' &&
+            typeof expense.category === 'string' &&
+            typeof expense.description === 'string' &&
+            Number.isFinite(Number(expense.amount)) &&
+            Number(expense.amount) > 0
+        ).map((expense) => ({ ...expense, amount: Number(expense.amount) }));
+    } catch {
+        return [];
+    }
+}
+
+function saveExpenses() {
+    try {
+        localStorage.setItem(expenseStorageKey, JSON.stringify(expenses));
+        return true;
+    } catch {
+        expError.textContent = 'Expenses could not be saved on this device.';
+        return false;
+    }
+}
 
 if (expenseForm) {
     expenseForm.addEventListener('submit', (event) => {
@@ -35,6 +66,7 @@ if (expenseForm) {
         editingIndex = -1;
         expSubmitBtn.textContent = 'Add expense';
         expenseForm.reset();
+        saveExpenses();
         updateTable();
     });
 }
@@ -65,6 +97,7 @@ if (expenseList) {
 
         if (actionButton.dataset.action === 'delete') {
             expenses.splice(index, 1);
+            saveExpenses();
             if (editingIndex === index) {
                 editingIndex = -1;
                 expenseForm.reset();
